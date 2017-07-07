@@ -27,26 +27,6 @@ from itemcatalog.views.util import createUser, getUserID
 
 login = Blueprint("login", __name__)
 
-@login.route("/test")
-def test():
-  app = current_app  #._get_current_object()
-#  a_test_var = cur
-  #test_var = current_app.config["DEBUG"]
-  #test_var = app.config["UPLOAD_FOLDER_PROFILE"]
-  test_var = app.config["UPLOAD_FOLDER_PROFILE"]
-  #test_var = current_app.config['UPLOAD_FOLDER_PROFILE']
-  #test_var = type(current_app.config)
-  #test_var = current_app.config.keys().joing("")
-  #test_var = "testing" #current_app.config['CLIENT_SECRETS_FILE']
-  #test_var = current_app.config['DATABASE_URI']
-  #test_var = os.environ.get("HOME")
-  if test_var:
-     return test_var
-  else:
-    return "problem"
-
-
-
 # Define url handlers:
 @login.route("/login")
 def showLogin():
