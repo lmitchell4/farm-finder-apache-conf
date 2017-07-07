@@ -49,10 +49,10 @@ def showLogin():
   return render_template("login.html", STATE=state, G_CLIENT_ID=G_CLIENT_ID)
 
 
-login.route("/gconnect", methods=["POST"])
+@login.route("/gconnect", methods=["POST"])
 def gconnect():
   """Sign in to user's Google account."""
-  
+
   # Google API client id:
   CLIENT_SECRETS_FILE = current_app.config["CLIENT_SECRETS_FILE"]
   G_CLIENT_ID = json.loads(
