@@ -15,27 +15,13 @@ from .views.event import event
 from .views.error import error
 from .apis import apis
 
-#from runpy import run_path
-
 ############################################################################
-
-#configs = run_path('/var/www/html/itemcatalog_venv/config.py')
-#flask_config_object = configs['flask_config_object']
-
-
-#import logging
-#logger = logging.getLogger()
-#logger.warning(configs['CLIENT_SECRETS_FILE']
-
-
 
 # Initialize flask application:
 application = Flask(__name__)
 
 application.config.from_pyfile('/var/www/html/itemcatalog_venv/config.py')
 
-#application.config.from_object(flask_config_object)
-#application.config['APPLICATION_NAME'] = 'testing'
 
 application.register_blueprint(index)
 application.register_blueprint(login)
