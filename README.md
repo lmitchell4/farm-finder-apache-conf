@@ -84,7 +84,7 @@ following:
   $ sudo a2dissite 000-default.conf
   ```
 
-or chaning the default's port.
+or changing the default's port.
 
 
 ## Other Resources
