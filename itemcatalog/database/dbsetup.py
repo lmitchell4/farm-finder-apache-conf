@@ -139,7 +139,7 @@ class Event(Base):
 
 
 if __name__ == "__main__":
-  configs = run_path('/var/www/html/itemcatalog_venv/config.py')
+  configs = run_path('/path_to_config_file/config_placeholder.py')
   DATABASE_URI = configs["DATABASE_URI"]
   engine = create_engine(DATABASE_URI)
   Base.metadata.create_all(engine)
