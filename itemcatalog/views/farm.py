@@ -30,8 +30,6 @@ def farmsShowAll():
   user_id = login_session.get("user_id")
   username = login_session.get("username")
 
-  #return farms[0].name
-  #return "aaa"
   return render_template("farms.html",
                          farms=farms,
                          username=username)
@@ -43,7 +41,8 @@ def farmsManage():
   """Show all farms belonging to the current user."""
   user_id = login_session.get("user_id")
   username = login_session.get("username")
-  
+
+
   # If someone is logged in, show them their farms:
   user_farms = db_session.query(Farm).filter_by(
                 user_id=user_id).order_by(asc(Farm.name))

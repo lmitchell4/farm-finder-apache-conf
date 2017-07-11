@@ -23,6 +23,9 @@ from itemcatalog.database.dbsetup import User
 from itemcatalog.database.dbconnect import db_session
 from itemcatalog.views.util import createUser, getUserID
 
+#import sys
+#from __future__ import print_function
+
 ############################################################################
 
 login = Blueprint("login", __name__)
@@ -37,7 +40,6 @@ def showLogin():
   G_CLIENT_ID = json.loads(
     open(CLIENT_SECRETS_FILE,"r").read())["web"]["client_id"]
 
-
   user_id = login_session.get("user_id")
 
   if user_id:
@@ -46,13 +48,14 @@ def showLogin():
   state = "".join(random.choice(string.ascii_uppercase +
                   string.digits) for x in xrange(32))
   login_session["state"] = state
+  login_session.modified = True
   return render_template("login.html", STATE=state, G_CLIENT_ID=G_CLIENT_ID)
 
 
 @login.route("/gconnect", methods=["POST"])
 def gconnect():
   """Sign in to user's Google account."""
-
+  
   # Google API client id:
   CLIENT_SECRETS_FILE = current_app.config["CLIENT_SECRETS_FILE"]
   G_CLIENT_ID = json.loads(
@@ -109,16 +112,19 @@ def gconnect():
       return response
 
     # Check to see if user is already logged in:
-    stored_credentials = login_session.get("credentials")
+    #stored_credentials = login_session.get("credentials")
+    stored_access_token = login_session.get("access_token")
     stored_gplus_id = login_session.get("gplus_id")
-    if stored_credentials is not None and gplus_id == stored_gplus_id:
+    #if stored_credentials is not None and gplus_id == stored_gplus_id:
+    if stored_access_token is not None and gplus_id == stored_gplus_id:
       response = make_response(
           json.dumps("Current user is already connected."), 200)
       response.headers["Content-Type"] = "application/json"
       return response
 
     # Store the access token in the session for later use:
-    login_session["credentials"] = credentials.to_json() # credentials
+    #login_session["credentials"] = credentials.to_json() # credentials
+    
     # Added because of serializable error:
     login_session["access_token"] = credentials.access_token
     login_session["gplus_id"] = gplus_id
@@ -143,6 +149,7 @@ def gconnect():
 
     login_session["user_id"] = user_id
 
+    login_session.modified = True
     output = ""
     output += "<div class='col-xs-offset-2 padding-none'>"
     output += "Login Successful!</br>"

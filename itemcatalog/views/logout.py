@@ -28,9 +28,11 @@ def clearsession():
 def gdisconnect():
   """Disconnect from user's Google account."""
   # Only disconnect a connected user.
-  credentials = login_session.get("credentials")
+  #credentials = login_session.get("credentials")
+  access_token = login_session.get("access_token")
 
-  if credentials is None:
+  #if credentials is None:
+  if access_token is None:
     response = make_response(
         json.dumps("Current user not connected."), 401)
     response.headers["Content-type"] = "application/json"
