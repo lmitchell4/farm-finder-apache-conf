@@ -20,7 +20,7 @@ from .apis import apis
 # Initialize flask application:
 application = Flask(__name__)
 
-application.config.from_pyfile('/var/www/html/itemcatalog_venv/config.py')
+application.config.from_pyfile('/path_to_config_file/config_placeholder.py')
 
 
 application.register_blueprint(index)
