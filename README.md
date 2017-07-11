@@ -9,7 +9,7 @@ an Apache server. A copy of the site is currently being hosted on Amazon Lightsa
 
 The IP address is `34.209.131.9` and the complete URL is 
 
-[http://ec2-34-209-131-9.us-west-2.compute.amazonaws.com/login](http://ec2-34-209-131-9.us-west-2.compute.amazonaws.com/login)
+[http://ec2-34-209-131-9.us-west-2.compute.amazonaws.com](http://ec2-34-209-131-9.us-west-2.compute.amazonaws.com)
 
 
 ## Software
