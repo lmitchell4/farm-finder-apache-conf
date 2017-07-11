@@ -7,9 +7,7 @@ This is a version of the [Farm Finder](https://github.com/lmitchell4/farm-finder
 project configured to use Postgresql instead of SQLite and run on 
 an Apache server. A copy of the site is currently being hosted on Amazon Lightsail.
 
-The IP address is `34.209.131.9` and the complete URL is 
-
-[http://ec2-34-209-131-9.us-west-2.compute.amazonaws.com](http://ec2-34-209-131-9.us-west-2.compute.amazonaws.com)
+The IP address is `34.209.131.9` and the complete URL is [http://ec2-34-209-131-9.us-west-2.compute.amazonaws.com](http://ec2-34-209-131-9.us-west-2.compute.amazonaws.com)
 
 
 ## Software
