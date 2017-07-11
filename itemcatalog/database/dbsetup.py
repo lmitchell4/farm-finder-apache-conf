@@ -35,7 +35,7 @@ itemCategories = ["Fruit and Vegetables",
 class User(Base):
   """Class for table containing user information."""
   
-  __tablename__ = "user"
+  __tablename__ = "userff"
 
   id = Column(Integer, primary_key=True)
   name = Column(String(250), nullable=False)
@@ -58,7 +58,7 @@ class Farm(Base):
  
   id = Column(Integer, primary_key=True)
   name = Column(String(250), nullable=False)
-  user_id = Column(Integer, ForeignKey("user.id"))
+  user_id = Column(Integer, ForeignKey("userff.id"))
   user = relationship(User)
   location = Column(String(250))
   contact = Column(TEXT)
@@ -92,7 +92,7 @@ class CatalogItem(Base):
   category = Column(String(250))
   farm_id = Column(Integer,ForeignKey("farm.id"))
   farm = relationship(Farm)
-  user_id = Column(Integer, ForeignKey("user.id"))
+  user_id = Column(Integer, ForeignKey("userff.id"))
   user = relationship(User)
   picture = Column(String(250))
   
@@ -122,7 +122,7 @@ class Event(Base):
   description = Column(String(250))
   farm_id = Column(Integer,ForeignKey("farm.id"))
   farm = relationship(Farm)
-  user_id = Column(Integer, ForeignKey("user.id"))
+  user_id = Column(Integer, ForeignKey("userff.id"))
   user = relationship(User)
   
   @property
