@@ -3,6 +3,8 @@
 Generate dummy data to populate the farmfinder database.
 """
 
+import os
+
 from sqlalchemy.engine.url import URL
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
@@ -15,8 +17,7 @@ from runpy import run_path
 
 
 # Connect to database and create database session:
-configs = run_path('/var/www/html/itemcatalog_venv/config.py')
-DATABASE_URI = configs["DATABASE_URI"]
+DATABASE_URI = os.environ['DATABASE_URI']
 
 engine = create_engine(DATABASE_URI)
 Base.metadata.bind = engine

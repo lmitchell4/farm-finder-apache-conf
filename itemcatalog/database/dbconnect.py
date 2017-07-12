@@ -4,6 +4,8 @@ Variables:
   db_session - A connection to the farmfinder database.
 """
 
+import os
+
 from sqlalchemy.engine.url import URL
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session
@@ -16,9 +18,8 @@ from runpy import run_path
 
 
 # Connect to database and create database session:
+DATABASE_URI = os.environ['DATABASE_URI']
 
-configs = run_path('/path_to_config_file/config_placeholder.py')
-DATABASE_URI = configs["DATABASE_URI"]
 
 engine = create_engine(DATABASE_URI)
 Base.metadata.bind = engine

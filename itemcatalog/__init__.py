@@ -3,6 +3,7 @@
 Initialize the Flask application.
 """
 
+import os
 from flask import Flask
 
 from .views.index import index
@@ -19,8 +20,6 @@ from .apis import apis
 
 # Initialize flask application:
 application = Flask(__name__)
-
-application.config.from_pyfile('/path_to_config_file/config_placeholder.py')
 
 
 application.register_blueprint(index)
